@@ -1,1 +1,337 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JongHan Kim | Research Portfolio</title>
 
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              300: "#6ee7b7",
+              400: "#34d399",
+              500: "#10b981",
+              600: "#059669",
+              700: "#047857",
+              800: "#065f46",
+              900: "#064e3b"
+            },
+            surfaceLight: "#ffffff",
+            surfaceDark: "#0b1220",
+            ink: "#0b1220"
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,0.08)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    body { font-family: "Public Sans", sans-serif; }
+    .glass { @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-md; }
+    .chip {
+      @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium
+             border border-slate-200/70 dark:border-slate-700/70
+             bg-white/60 dark:bg-slate-900/40;
+    }
+    .btn {
+      @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold
+             transition-all duration-200;
+    }
+    .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-soft; }
+    .btn-ghost {
+      @apply btn border border-slate-200 dark:border-slate-700
+             hover:bg-slate-50 dark:hover:bg-slate-800/50;
+    }
+    .card {
+      @apply rounded-2xl border border-slate-200/70 dark:border-slate-800
+             bg-white/70 dark:bg-slate-900/40
+             shadow-soft;
+    }
+    .muted { @apply text-slate-600 dark:text-slate-300/70; }
+    .link { @apply text-brand-700 dark:text-brand-300 hover:underline; }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-surfaceDark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full max-w-6xl mx-auto px-6 py-5 sticky top-0 z-50">
+    <div class="glass rounded-2xl border border-slate-200/70 dark:border-slate-800 px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-brand-600 text-3xl">forest</span>
+        <span class="text-base font-bold tracking-tight">JongHan Kim</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7">
+        <a class="text-sm font-semibold text-brand-700 dark:text-brand-300" href="index.html">Home</a>
+        <a class="text-sm font-semibold text-slate-600 hover:text-brand-700 dark:text-slate-300/70 dark:hover:text-brand-300 transition-colors" href="publications.html">Publications</a>
+        <a class="text-sm font-semibold text-slate-600 hover:text-brand-700 dark:text-slate-300/70 dark:hover:text-brand-300 transition-colors" href="experience.html">Experience</a>
+        <a class="btn-primary text-xs rounded-xl px-4 py-2" href="contact.html">
+          Contact
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+
+        <!-- Theme toggle -->
+        <button id="themeToggle" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-label="Toggle theme">
+          <span id="themeIcon" class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">dark_mode</span>
+        </button>
+      </nav>
+
+      <!-- Mobile controls -->
+      <div class="md:hidden flex items-center gap-2">
+        <button id="themeToggleMobile" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-label="Toggle theme">
+          <span id="themeIconMobile" class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">dark_mode</span>
+        </button>
+        <button id="mobileMenuBtn" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" type="button" aria-label="Open menu">
+          <span class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-3 card overflow-hidden">
+      <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="index.html">Home</a>
+      <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="publications.html">Publications</a>
+      <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="experience.html">Experience</a>
+      <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full max-w-6xl mx-auto px-6 pb-24">
+
+    <!-- Hero -->
+    <section class="pt-6 md:pt-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+        <!-- Left: Hero card -->
+        <div class="lg:col-span-8 card p-7 md:p-10 relative overflow-hidden">
+          <!-- background decoration -->
+          <div class="absolute -top-24 -right-24 size-72 rounded-full bg-brand-200/70 blur-3xl"></div>
+          <div class="absolute -bottom-28 -left-20 size-72 rounded-full bg-brand-300/40 blur-3xl"></div>
+
+          <div class="relative">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-800 border border-brand-100 text-xs font-bold">
+              <span class="material-symbols-outlined text-base">eco</span>
+              Research Portfolio
+            </div>
+
+            <h1 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight leading-[1.05]">
+              JongHan Kim
+            </h1>
+            <p class="mt-3 text-lg md:text-xl font-semibold text-brand-700 dark:text-brand-300">
+              M.S. Student · Department of Immersive Media Engineering<br/>
+              Sungkyunkwan University
+            </p>
+
+            <p class="mt-5 muted leading-relaxed max-w-2xl">
+              I am an M.S. student at Sungkyunkwan University, Department of Immersive Media Engineering.
+              My research interests include Human-AI Interaction and Multimodal Learning, with a focus on building
+              practical AI systems that connect human needs and real-world applications.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a class="btn-primary" href="assets/cv.pdf" target="_blank" rel="noopener">
+                <span class="material-symbols-outlined text-lg">description</span>
+                CV
+              </a>
+              <a class="btn-ghost" href="publications.html">
+                <span class="material-symbols-outlined text-lg">library_books</span>
+                Publications
+              </a>
+              <a class="btn-ghost" href="contact.html">
+                <span class="material-symbols-outlined text-lg">mail</span>
+                Contact
+              </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="chip"><span class="material-symbols-outlined text-brand-600 text-lg">group</span> Human-AI Interaction</span>
+              <span class="chip"><span class="material-symbols-outlined text-brand-600 text-lg">layers</span> Multimodal Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Profile + links -->
+        <div class="lg:col-span-4 grid gap-6">
+          <div class="card p-7">
+            <div class="flex items-center gap-4">
+              <div class="size-16 rounded-2xl overflow-hidden border border-slate-200/70 dark:border-slate-700/70 bg-slate-200/40">
+                <div class="w-full h-full bg-cover bg-center" style='background-image: url("assets/profile.jpg");'></div>
+              </div>
+              <div>
+                <div class="text-base font-bold">JongHan Kim</div>
+                <div class="text-sm muted">entere77@g.skku.edu</div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 gap-3">
+              <a class="btn-ghost rounded-xl justify-between" href="https://scholar.google.com" target="_blank" rel="noopener">
+                <span class="inline-flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg text-brand-600">school</span>
+                  Google Scholar
+                </span>
+                <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+              </a>
+              <a class="btn-ghost rounded-xl justify-between" href="https://github.com/entere77" target="_blank" rel="noopener">
+                <span class="inline-flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg text-brand-600">code</span>
+                  GitHub
+                </span>
+                <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+              </a>
+              <a class="btn-ghost rounded-xl justify-between" href="https://www.linkedin.com/in/jonghan-kim-b57525317/" target="_blank" rel="noopener">
+                <span class="inline-flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg text-brand-600">link</span>
+                  LinkedIn
+                </span>
+                <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card p-7">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-brand-600">insights</span>
+              <h2 class="text-base font-bold">Now</h2>
+            </div>
+            <p class="mt-3 muted text-sm leading-relaxed">
+              Currently focusing on human-centered AI systems, especially how multimodal models can support interaction
+              and understanding in real-world contexts.
+            </p>
+            <div class="mt-4 text-sm">
+              <a class="link" href="experience.html">See experience →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card p-7">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-600">article</span>
+          <h2 class="text-base font-bold">Publications</h2>
+        </div>
+        <p class="mt-3 text-sm muted leading-relaxed">
+          Selected papers and ongoing work in Human-AI Interaction and multimodal learning.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-brand-50 text-brand-800 border border-brand-100">Selected</span>
+          <a class="link text-sm" href="publications.html">View →</a>
+        </div>
+      </div>
+
+      <div class="card p-7">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-600">rocket_launch</span>
+          <h2 class="text-base font-bold">Projects</h2>
+        </div>
+        <p class="mt-3 text-sm muted leading-relaxed">
+          Projects exploring practical, real-world applications of interactive and multimodal AI.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-brand-50 text-brand-800 border border-brand-100">In progress</span>
+          <a class="link text-sm" href="experience.html">Details →</a>
+        </div>
+      </div>
+
+      <div class="card p-7">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-600">handshake</span>
+          <h2 class="text-base font-bold">Collaboration</h2>
+        </div>
+        <p class="mt-3 text-sm muted leading-relaxed">
+          Open to research collaboration and internships in Human-AI Interaction and Multimodal Learning.
+        </p>
+        <div class="mt-4">
+          <a class="btn-primary w-full justify-center rounded-xl" href="contact.html">
+            Reach out
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-14 pt-10 border-t border-slate-200/70 dark:border-slate-800 text-center">
+      <p class="text-sm muted">
+        © <span id="year"></span> JongHan Kim
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme: localStorage + OS fallback
+    const root = document.documentElement;
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function setTheme(mode) {
+      if (mode === "dark") root.classList.add("dark");
+      else root.classList.remove("dark");
+      localStorage.setItem("theme", mode);
+      updateIcons();
+    }
+
+    function currentTheme() {
+      return root.classList.contains("dark") ? "dark" : "light";
+    }
+
+    function toggleTheme() {
+      setTheme(currentTheme() === "dark" ? "light" : "dark");
+    }
+
+    function updateIcons() {
+      const icon = currentTheme() === "dark" ? "light_mode" : "dark_mode";
+      const d = document.getElementById("themeIcon");
+      const m = document.getElementById("themeIconMobile");
+      if (d) d.textContent = icon;
+      if (m) m.textContent = icon;
+    }
+
+    if (stored) setTheme(stored);
+    else setTheme(prefersDark ? "dark" : "light");
+
+    // Bind toggles
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleMobile = document.getElementById("themeToggleMobile");
+    if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+    if (themeToggleMobile) themeToggleMobile.addEventListener("click", toggleTheme);
+
+    // Mobile menu
+    const btn = document.getElementById("mobileMenuBtn");
+    const panel = document.getElementById("mobileMenu");
+    if (btn && panel) {
+      btn.addEventListener("click", () => panel.classList.toggle("hidden"));
+      panel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => panel.classList.add("hidden")));
+    }
+  </script>
+
+</body>
+</html>
