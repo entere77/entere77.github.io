@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | JongHan Kim</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:"#ecfdf5",
+              100:"#d1fae5",
+              200:"#a7f3d0",
+              300:"#6ee7b7",
+              400:"#34d399",
+              500:"#10b981",
+              600:"#059669",
+              700:"#047857",
+              800:"#065f46",
+              900:"#064e3b"
+            },
+            surfaceDark:"#0b1220"
+          },
+          fontFamily:{
+            display:["Public Sans","sans-serif"],
+          },
+          boxShadow:{
+            soft:"0 10px 30px rgba(0,0,0,0.08)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    body { font-family:"Public Sans",sans-serif; }
+    .glass { @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-md; }
+    .card {
+      @apply rounded-2xl border border-slate-200/70 dark:border-slate-800
+             bg-white/70 dark:bg-slate-900/40 shadow-soft;
+    }
+    .muted { @apply text-slate-600 dark:text-slate-300/70; }
+    .link { @apply text-brand-700 dark:text-brand-300 hover:underline; }
+    .btn {
+      @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-200;
+    }
+    .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-soft; }
+    .btn-ghost {
+      @apply btn border border-slate-200 dark:border-slate-700
+             hover:bg-slate-50 dark:hover:bg-slate-800/50;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-surfaceDark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+<header class="w-full max-w-6xl mx-auto px-6 py-5 sticky top-0 z-50">
+  <div class="glass rounded-2xl border border-slate-200/70 dark:border-slate-800 px-5 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-brand-600 text-3xl">forest</span>
+      <span class="text-base font-bold tracking-tight">JongHan Kim</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7">
+      <a class="text-sm font-semibold text-slate-600 hover:text-brand-700 dark:text-slate-300/70 dark:hover:text-brand-300 transition-colors" href="index.html">Home</a>
+      <a class="text-sm font-semibold text-slate-600 hover:text-brand-700 dark:text-slate-300/70 dark:hover:text-brand-300 transition-colors" href="publications.html">Publications</a>
+      <a class="text-sm font-semibold text-slate-600 hover:text-brand-700 dark:text-slate-300/70 dark:hover:text-brand-300 transition-colors" href="experience.html">Experience</a>
+      <a class="btn-primary text-xs rounded-xl px-4 py-2" href="contact.html">
+        Contact
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+
+      <button id="themeToggle" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span id="themeIcon" class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">dark_mode</span>
+      </button>
+    </nav>
+
+    <div class="md:hidden flex items-center gap-2">
+      <button id="themeToggleMobile" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span id="themeIconMobile" class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">dark_mode</span>
+      </button>
+      <button id="mobileMenuBtn" class="inline-flex items-center justify-center size-10 rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+        <span class="material-symbols-outlined text-lg text-slate-700 dark:text-slate-200">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden mt-3 card overflow-hidden">
+    <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="index.html">Home</a>
+    <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="publications.html">Publications</a>
+    <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="experience.html">Experience</a>
+    <a class="block px-5 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800/40" href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 pb-24">
+
+<section class="pt-6 md:pt-10">
+  <div class="card p-7 md:p-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-800 border border-brand-100 text-xs font-bold">
+      <span class="material-symbols-outlined text-base">mail</span>
+      Contact
+    </div>
+
+    <h1 class="mt-4 text-3xl md:text-4xl font-bold tracking-tight">Get in Touch</h1>
+    <p class="mt-4 muted max-w-3xl leading-relaxed">
+      I am open to research collaboration, academic exchange, and internship opportunities related to
+      Human-AI Interaction and Multimodal Learning.
+    </p>
+  </div>
+</section>
+
+<section class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+<div class="card p-7">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-brand-600">alternate_email</span>
+    <h2 class="text-xl font-bold">Contact Information</h2>
+  </div>
+
+  <div class="mt-6 space-y-5">
+    <div>
+      <p class="text-sm muted">Name</p>
+      <p class="mt-1 font-semibold">JongHan Kim</p>
+    </div>
+
+    <div>
+      <p class="text-sm muted">Email</p>
+      <a href="mailto:entere77@g.skku.edu" class="mt-1 block link font-semibold">
+        entere77@g.skku.edu
+      </a>
+    </div>
+
+    <div>
+      <p class="text-sm muted">Affiliation</p>
+      <p class="mt-1 font-semibold">Sungkyunkwan University</p>
+      <p class="text-sm muted">Department of Immersive Media Engineering</p>
+    </div>
+  </div>
+</div>
+
+<div class="card p-7">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-brand-600">link</span>
+    <h2 class="text-xl font-bold">Online Profiles</h2>
+  </div>
+
+  <div class="mt-6 grid grid-cols-1 gap-3">
+
+    <a class="btn-ghost rounded-xl justify-between"
+       href="https://scholar.google.co.kr/citations?user=QVtGALQAAAAJ&hl=ko"
+       target="_blank" rel="noopener">
+      <span class="inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-lg text-brand-600">school</span>
+        Google Scholar
+      </span>
+      <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+    </a>
+
+    <a class="btn-ghost rounded-xl justify-between"
+       href="https://github.com/entere77"
+       target="_blank" rel="noopener">
+      <span class="inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-lg text-brand-600">code</span>
+        GitHub
+      </span>
+      <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+    </a>
+
+    <a class="btn-ghost rounded-xl justify-between"
+       href="https://www.linkedin.com/in/jonghan-kim-b57525317/"
+       target="_blank" rel="noopener">
+      <span class="inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-lg text-brand-600">business_center</span>
+        LinkedIn
+      </span>
+      <span class="material-symbols-outlined text-lg muted">open_in_new</span>
+    </a>
+
+  </div>
+</div>
+
+</section>
+
+<section class="mt-10">
+  <div class="card p-7 md:p-10 text-center">
+    <h2 class="text-2xl font-bold tracking-tight">Let’s connect</h2>
+    <p class="mt-3 muted max-w-2xl mx-auto leading-relaxed">
+      Feel free to reach out by email for collaboration, research discussion, or academic opportunities.
+    </p>
+
+    <div class="mt-6 flex justify-center">
+      <a href="mailto:entere77@g.skku.edu" class="btn-primary">
+        <span class="material-symbols-outlined text-lg">send</span>
+        Send Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="mt-14 pt-10 border-t border-slate-200/70 dark:border-slate-800 text-center">
+  <p class="text-sm muted">
+    © <span id="year"></span> JongHan Kim
+  </p>
+</footer>
+
+</main>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const root=document.documentElement;
+const stored=localStorage.getItem("theme");
+const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+function setTheme(mode){
+  if(mode==="dark") root.classList.add("dark");
+  else root.classList.remove("dark");
+  localStorage.setItem("theme",mode);
+  updateIcons();
+}
+
+function currentTheme(){
+  return root.classList.contains("dark")?"dark":"light";
+}
+
+function toggleTheme(){
+  setTheme(currentTheme()==="dark"?"light":"dark");
+}
+
+function updateIcons(){
+  const icon=currentTheme()==="dark"?"light_mode":"dark_mode";
+  const d=document.getElementById("themeIcon");
+  const m=document.getElementById("themeIconMobile");
+  if(d)d.textContent=icon;
+  if(m)m.textContent=icon;
+}
+
+if(stored)setTheme(stored);
+else setTheme(prefersDark?"dark":"light");
+
+document.getElementById("themeToggle")?.addEventListener("click",toggleTheme);
+document.getElementById("themeToggleMobile")?.addEventListener("click",toggleTheme);
+
+const btn=document.getElementById("mobileMenuBtn");
+const panel=document.getElementById("mobileMenu");
+if(btn&&panel){
+  btn.addEventListener("click",()=>panel.classList.toggle("hidden"));
+  panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>panel.classList.add("hidden")));
+}
+</script>
+
+</body>
+</html>
