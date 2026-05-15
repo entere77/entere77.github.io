@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patents | JongHan Kim</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500:"#10b981",
+              600:"#059669",
+              700:"#047857"
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    body { font-family: "Public Sans", sans-serif; }
+
+    .card{
+      @apply rounded-2xl border border-slate-200/70 dark:border-slate-800
+      bg-white/70 dark:bg-slate-900/40 p-6;
+    }
+
+    .link{
+      @apply text-brand-700 hover:underline;
+    }
+
+    .muted{
+      @apply text-slate-500;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen">
+
+<main class="max-w-4xl mx-auto px-6 py-16">
+
+<header class="mb-12">
+  <h1 class="text-3xl font-bold tracking-tight">Patents</h1>
+  <p class="mt-2 muted">
+    Selected patent applications related to generative AI and real-time detection systems.
+  </p>
+</header>
+
+<section class="space-y-8">
+
+  <article class="card">
+    <h2 class="text-lg font-bold leading-snug">
+      Methods and Devices for Stepwise Purification of Sentences with Generative AI
+    </h2>
+
+    <p class="mt-2 text-sm text-slate-600">
+      Republic of Korea Patent 10-2023-0123130
+    </p>
+
+    <p class="mt-1 text-sm text-slate-400">
+      Applied · September 15, 2023
+    </p>
+  </article>
+
+  <article class="card">
+    <h2 class="text-lg font-bold leading-snug">
+      Methods and Devices for Stepwise Purification of Sentences with Generative AI
+    </h2>
+
+    <p class="mt-2 text-sm text-slate-600">
+      U.S. Patent 18/522,709
+    </p>
+
+    <p class="mt-1 text-sm text-slate-400">
+      Applied · November 29, 2023
+    </p>
+  </article>
+
+  <article class="card">
+    <h2 class="text-lg font-bold leading-snug">
+      Method and System for Detecting PM Location Using Real-Time Object Detection Technology
+    </h2>
+
+    <p class="mt-2 text-sm text-slate-600">
+      Republic of Korea Patent 10-2024-0012439
+    </p>
+
+    <p class="mt-1 text-sm text-slate-400">
+      Applied · January 26, 2024
+    </p>
+  </article>
+
+</section>
+
+<footer class="mt-16">
+  <a href="index.html" class="link text-sm">
+    ← Back to Home
+  </a>
+</footer>
+
+</main>
+
+</body>
+</html>
